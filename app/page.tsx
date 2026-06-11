@@ -300,24 +300,24 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-stone-50 font-sans text-slate-900">
-      <nav className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
-          <a href="#" className="flex items-center gap-3">
-            <div className="rounded-lg bg-amber-500 px-3 py-2 text-xl font-black leading-none text-slate-950">AX</div>
+    <main className="min-h-screen overflow-x-hidden bg-stone-50 font-sans text-slate-900">
+      <nav className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-3 py-3 shadow-sm backdrop-blur sm:px-4">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
+          <a href="#" className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <div className="rounded-lg bg-amber-500 px-2.5 py-2 text-lg font-black leading-none text-slate-950 sm:px-3 sm:text-xl">AX</div>
             <div>
-              <div className="text-xl font-black tracking-tight text-slate-900">{brand}</div>
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Home & Business Repair</div>
+              <div className="text-lg font-black tracking-tight text-slate-900 sm:text-xl">{brand}</div>
+              <div className="hidden text-xs font-bold uppercase tracking-[0.2em] text-slate-500 sm:block">Home & Business Repair</div>
             </div>
           </a>
-          <div className="flex items-center gap-2">
-            <button onClick={handleLangToggle} className="rounded-full border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100">
+          <div className="flex flex-1 items-center justify-end gap-1.5 sm:flex-none sm:gap-2">
+            <button onClick={handleLangToggle} className="rounded-full border border-slate-300 px-2.5 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-100 sm:px-3 sm:text-sm">
               {t.langBtn}
             </button>
-            <a href={phoneHref} className="rounded-full bg-slate-900 px-4 py-2 text-sm font-bold text-white shadow-lg transition hover:bg-slate-700 sm:px-5">
+            <a href={phoneHref} className="rounded-full bg-slate-900 px-3 py-2 text-xs font-bold text-white shadow-lg transition hover:bg-slate-700 sm:px-5 sm:text-sm">
               {t.navCall}
             </a>
-            <button onClick={() => setAuthMode('register')} className="rounded-full border border-slate-300 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-slate-100">
+            <button onClick={() => setAuthMode('register')} className="rounded-full border border-slate-300 px-2.5 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-100 sm:px-3 sm:text-sm">
               {t.regNavBtn}
             </button>
           </div>
@@ -325,7 +325,7 @@ export default function Home() {
       </nav>
 
       <section
-        className="relative overflow-hidden bg-cover bg-center px-6 py-24 text-white md:py-32"
+        className="relative overflow-hidden bg-cover bg-center px-4 py-20 text-white sm:px-6 md:py-32"
         style={{
           backgroundImage: "url('/aixelis-smart-home-hero.jpg')",
           backgroundPosition: 'center center',
@@ -334,15 +334,15 @@ export default function Home() {
         <div className="absolute inset-0 bg-slate-950/60" />
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="mb-4 inline-flex rounded-full bg-amber-400 px-4 py-2 text-sm font-black text-slate-950">Walnut • Los Angeles • Orange County</p>
-            <h1 className="mb-6 text-4xl font-black leading-tight tracking-tight md:text-6xl">{t.heroTitle}</h1>
-            <p className="mb-4 text-xl font-semibold text-slate-100 md:text-2xl">{t.heroSub}</p>
-            <p className="mb-9 max-w-2xl text-base leading-7 text-slate-200 md:text-lg">{t.heroNote}</p>
-            <div className="flex flex-wrap gap-4">
-              <button onClick={() => setShowModal(true)} className="rounded-xl bg-amber-400 px-8 py-4 text-lg font-black text-slate-950 shadow-2xl transition hover:-translate-y-1 hover:bg-amber-300">
+            <p className="mb-4 inline-flex max-w-full rounded-full bg-amber-400 px-3 py-2 text-xs font-black text-slate-950 sm:px-4 sm:text-sm">Walnut • Los Angeles • Orange County</p>
+            <h1 className="mb-5 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-6xl">{t.heroTitle}</h1>
+            <p className="mb-4 text-lg font-semibold leading-7 text-slate-100 sm:text-xl md:text-2xl">{t.heroSub}</p>
+            <p className="mb-8 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base md:text-lg">{t.heroNote}</p>
+            <div className="grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
+              <button onClick={() => setShowModal(true)} className="rounded-xl bg-amber-400 px-6 py-3.5 text-base font-black text-slate-950 shadow-2xl transition hover:-translate-y-1 hover:bg-amber-300 sm:px-8 sm:py-4 sm:text-lg">
                 {t.bookBtn}
               </button>
-              <a href="#services" className="rounded-xl border border-white/70 bg-white/10 px-8 py-4 text-lg font-black text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-slate-950">
+              <a href="#services" className="rounded-xl border border-white/70 bg-white/10 px-6 py-3.5 text-center text-base font-black text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-slate-950 sm:px-8 sm:py-4 sm:text-lg">
                 {t.learnBtn}
               </a>
             </div>
@@ -350,34 +350,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <h2 className="mb-5 text-3xl font-black tracking-tight text-slate-900 md:text-4xl">{t.aboutTitle}</h2>
-            <p className="text-lg leading-8 text-slate-600">{t.aboutDesc}</p>
+            <h2 className="mb-5 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-4xl">{t.aboutTitle}</h2>
+            <p className="text-base leading-8 text-slate-600 sm:text-lg">{t.aboutDesc}</p>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             {t.trustItems.map((item) => (
-              <div key={item} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div key={item} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
                 <div className="mb-2 text-2xl font-black text-amber-500">✓</div>
-                <div className="font-black text-slate-800">{item}</div>
+                <div className="text-sm font-black text-slate-800 sm:text-base">{item}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="services" className="bg-white px-6 py-16">
+      <section id="services" className="bg-white px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 max-w-3xl">
-            <h2 className="mb-3 text-3xl font-black tracking-tight text-slate-900 md:text-4xl">{t.servicesTitle}</h2>
-            <p className="text-lg text-slate-600">{t.servicesDesc}</p>
+            <h2 className="mb-3 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl md:text-4xl">{t.servicesTitle}</h2>
+            <p className="text-base leading-7 text-slate-600 sm:text-lg">{t.servicesDesc}</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {t.serviceCards.map((service) => (
               <article key={service.title} className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                <div className="h-44 bg-cover bg-center" style={{ backgroundImage: `url('${service.image}')` }} />
-                <div className="p-6">
+                <div className="h-40 bg-cover bg-center sm:h-44" style={{ backgroundImage: `url('${service.image}')` }} />
+                <div className="p-5 sm:p-6">
                   <h3 className="mb-3 text-xl font-black text-slate-900">{service.title}</h3>
                   <p className="leading-7 text-slate-600">{service.desc}</p>
                 </div>
@@ -387,9 +387,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-16 lg:grid-cols-2">
-        <div className="rounded-2xl bg-slate-900 p-8 text-white">
-          <h2 className="mb-4 text-3xl font-black">{t.areaTitle}</h2>
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-8">
+        <div className="rounded-2xl bg-slate-900 p-6 text-white sm:p-8">
+          <h2 className="mb-4 text-2xl font-black sm:text-3xl">{t.areaTitle}</h2>
           <p className="mb-6 leading-7 text-slate-300">{t.areaDesc}</p>
           <div className="flex flex-wrap gap-3">
             {t.areas.map((area) => (
@@ -399,8 +399,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="mb-6 text-3xl font-black text-slate-900">{t.processTitle}</h2>
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <h2 className="mb-6 text-2xl font-black text-slate-900 sm:text-3xl">{t.processTitle}</h2>
           <div className="grid gap-4">
             {t.process.map((step, index) => (
               <div key={step} className="flex items-center gap-4 rounded-xl bg-stone-50 p-4">
@@ -412,8 +412,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-14">
-        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-200 bg-stone-50 p-8">
+      <section className="bg-white px-4 py-12 sm:px-6 sm:py-14">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-slate-200 bg-stone-50 p-6 sm:p-8">
           <h2 className="mb-3 text-2xl font-black text-slate-900 md:text-3xl">{t.seoTitle}</h2>
           <p className="mb-5 max-w-4xl leading-7 text-slate-600">{t.seoDesc}</p>
           <div className="flex flex-wrap gap-2">
@@ -426,8 +426,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      <section className="px-4 py-12 sm:px-6 sm:py-16">
+        <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
           <h2 className="mb-6 text-center text-2xl font-black text-slate-900">
             {authMode === 'login' ? t.loginTitle : authMode === 'register' ? t.registerBtn : authMode === 'forgot' ? t.forgotTitle : t.resetTitle}
           </h2>
@@ -491,8 +491,8 @@ export default function Home() {
       </footer>
 
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl md:p-8">
+        <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-950/70 px-4 py-4 backdrop-blur-sm sm:items-center sm:py-8">
+          <div className="relative w-full max-w-lg rounded-2xl bg-white p-5 shadow-2xl sm:p-6 md:p-8">
             <h2 className="mb-6 text-2xl font-black text-slate-900">{t.modalTitle}</h2>
             {bookMessage ? (
               <div className="rounded-xl bg-green-100 p-6 text-center text-lg font-black text-green-700">{bookMessage}</div>
@@ -524,11 +524,11 @@ export default function Home() {
                   {t.descLabel}
                   <textarea value={bookDesc} onChange={(e) => setBookDesc(e.target.value)} rows={4} className="mt-1 w-full resize-none rounded-xl border border-slate-200 bg-stone-50 p-3 outline-none focus:border-amber-500" placeholder={t.descPlaceholder} />
                 </label>
-                <div className="flex gap-3 pt-3">
-                  <button type="button" onClick={() => setShowModal(false)} disabled={isSubmitting} className="w-1/3 rounded-xl bg-slate-100 py-3 font-black text-slate-600 transition hover:bg-slate-200">
+                <div className="grid gap-3 pt-3 sm:flex">
+                  <button type="button" onClick={() => setShowModal(false)} disabled={isSubmitting} className="rounded-xl bg-slate-100 py-3 font-black text-slate-600 transition hover:bg-slate-200 sm:w-1/3">
                     {t.cancelBtn}
                   </button>
-                  <button type="submit" disabled={isSubmitting} className="w-2/3 rounded-xl bg-amber-400 py-3 font-black text-slate-950 shadow-lg transition hover:bg-amber-300 disabled:bg-amber-200">
+                  <button type="submit" disabled={isSubmitting} className="rounded-xl bg-amber-400 py-3 font-black text-slate-950 shadow-lg transition hover:bg-amber-300 disabled:bg-amber-200 sm:w-2/3">
                     {isSubmitting ? t.submittingBtn : t.submitBtn}
                   </button>
                 </div>
