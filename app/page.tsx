@@ -103,7 +103,7 @@ const translations = {
   },
   en: {
     navCall: `Call ${phone}`,
-    langBtn: '繁體中文',
+    langBtn: '中文',
     heroTitle: 'Aixelis Handyman Services for Homes & Businesses',
     heroSub: 'Appliances & Business Equipment • Networking • Security Cameras • Light HVAC • Small Electrical • Repairs',
     heroNote: 'Serving Walnut, the greater Los Angeles area, and Orange County / Irvine for homeowners, landlords, shops, restaurants, warehouses, and small offices.',
