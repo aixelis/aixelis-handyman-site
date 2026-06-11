@@ -1,0 +1,105 @@
+import type { Metadata } from "next";
+import type { MetaHTMLAttributes } from "react";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Aixelis | Home & Business Handyman, Networking & Camera Installation",
+  description:
+    "Aixelis provides handyman services for homes and businesses in Walnut, Los Angeles, Orange County, and Irvine, including appliance repair, business equipment, networking, security cameras, light HVAC, small electrical, plumbing, and general repairs.",
+  keywords: [
+    "Aixelis",
+    "handyman Walnut CA",
+    "Walnut home repair",
+    "Los Angeles handyman",
+    "Orange County handyman",
+    "Irvine handyman",
+    "appliance repair",
+    "business equipment repair",
+    "security camera installation",
+    "Wi-Fi setup",
+    "Ethernet cabling",
+    "light HVAC service",
+    "rental property maintenance",
+    "shop repair",
+  ],
+  openGraph: {
+    title: "Aixelis | Home & Business Handyman Services",
+    description:
+      "Handyman, appliance repair, networking, camera installation, light HVAC, and small repair services for Walnut, Los Angeles, Orange County, and Irvine.",
+    type: "website",
+    locale: "en_US",
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: "Aixelis",
+  description:
+    "Home and business handyman services including appliance repair, business equipment support, networking, security camera installation, light HVAC, small electrical, plumbing, and general repairs.",
+  telephone: "+1-626-252-4457",
+  areaServed: [
+    { "@type": "City", name: "Walnut" },
+    { "@type": "City", name: "Diamond Bar" },
+    { "@type": "City", name: "Rowland Heights" },
+    { "@type": "AdministrativeArea", name: "Los Angeles County" },
+    { "@type": "AdministrativeArea", name: "Orange County" },
+    { "@type": "City", name: "Irvine" },
+  ],
+  serviceType: [
+    "Handyman service",
+    "Appliance repair",
+    "Business equipment repair",
+    "Ethernet cabling",
+    "Wi-Fi setup",
+    "Security camera installation",
+    "Video doorbell installation",
+    "Light HVAC service",
+    "Small electrical repair",
+    "Small plumbing repair",
+    "Rental property maintenance",
+    "Shop repair",
+  ],
+  priceRange: "$$",
+};
+
+const impactVerificationMeta: MetaHTMLAttributes<HTMLMetaElement> & {
+  value: string;
+} = {
+  name: "impact-site-verification",
+  value: "e63f9c9e-e03a-48a3-9d3d-840b8a8fe499",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <meta {...impactVerificationMeta} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
