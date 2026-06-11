@@ -1,4 +1,13 @@
+name = "aixelis-handyman-site"
+main = ".open-next/worker.js"
+compatibility_date = "2026-06-11"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
 [[d1_databases]]
-binding = "DB" # 在代码里调用的名字
+binding = "DB"
 database_name = "aixelis_db"
 database_id = "ce1e0be9-a7c1-48bc-ba2e-2a1065ae5004"
