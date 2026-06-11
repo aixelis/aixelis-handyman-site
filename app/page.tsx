@@ -327,11 +327,11 @@ export default function Home() {
       <section
         className="relative overflow-hidden bg-cover bg-center px-6 py-24 text-white md:py-32"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?auto=format&fit=crop&q=80&w=2200')",
-          backgroundPosition: 'center 45%',
+          backgroundImage: "url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=90&w=2400&v=aixelis-appliance-hero')",
+          backgroundPosition: 'center center',
         }}
       >
-        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-slate-950/60" />
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="mb-4 inline-flex rounded-full bg-amber-400 px-4 py-2 text-sm font-black text-slate-950">Walnut • Los Angeles • Orange County</p>
