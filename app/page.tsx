@@ -327,7 +327,7 @@ export default function Home() {
       <section
         className="relative overflow-hidden bg-cover bg-center px-6 py-24 text-white md:py-32"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=90&w=2400&v=aixelis-appliance-hero')",
+          backgroundImage: "url('/aixelis-appliance-hero.png')",
           backgroundPosition: 'center center',
         }}
       >
