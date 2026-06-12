@@ -75,6 +75,7 @@ export const sites = {
     brand: "Aixelis",
     phone,
     phoneHref: "tel:626-252-4457",
+    theme: "light",
     navTagline: "Home & Business Repair",
     heroImage: "/aixelis-smart-home-hero.jpg",
     metadata: {
@@ -187,6 +188,7 @@ export const sites = {
     brand: "Aixelis",
     phone,
     phoneHref: "tel:626-252-4457",
+    theme: "dark",
     navTagline: "HVAC • Electrical • Plumbing",
     heroImage: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=90&w=2200",
     metadata: {

@@ -24,3 +24,79 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.site-dark {
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), transparent 34rem),
+    linear-gradient(180deg, #020617 0%, #0f172a 45%, #020617 100%);
+  color: #f8fafc;
+}
+
+.site-dark nav {
+  border-color: rgba(30, 41, 59, 0.95);
+  background: rgba(2, 6, 23, 0.94);
+}
+
+.site-dark nav .bg-amber-500,
+.site-dark .bg-amber-400 {
+  background: #2563eb;
+}
+
+.site-dark nav a[href^="tel"] {
+  background: #dc2626;
+}
+
+.site-dark .bg-white,
+.site-dark .bg-stone-50 {
+  border-color: rgba(51, 65, 85, 0.9);
+  background-color: rgba(15, 23, 42, 0.88);
+}
+
+.site-dark section.bg-white {
+  background-color: rgba(2, 6, 23, 0.88);
+}
+
+.site-dark .bg-slate-900 {
+  background: linear-gradient(135deg, #020617, #172554);
+}
+
+.site-dark .text-slate-900,
+.site-dark .text-slate-800,
+.site-dark .text-slate-700 {
+  color: #f8fafc;
+}
+
+.site-dark .text-slate-600,
+.site-dark .text-slate-500 {
+  color: #cbd5e1;
+}
+
+.site-dark .border-slate-200,
+.site-dark .border-slate-300 {
+  border-color: rgba(51, 65, 85, 0.95);
+}
+
+.site-dark .shadow-sm,
+.site-dark .shadow-xl,
+.site-dark .shadow-2xl {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.site-dark input,
+.site-dark select,
+.site-dark textarea {
+  border-color: rgba(71, 85, 105, 0.95);
+  background: rgba(2, 6, 23, 0.72);
+  color: #f8fafc;
+}
+
+.site-dark input::placeholder,
+.site-dark textarea::placeholder {
+  color: #94a3b8;
+}
+
+.site-dark footer {
+  border-color: rgba(30, 41, 59, 0.95);
+  background: #020617;
+  color: #94a3b8;
+}

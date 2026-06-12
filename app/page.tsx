@@ -5,6 +5,7 @@ import { siteContent, type Lang } from '@/lib/site-content';
 
 export default function Home() {
   const translations = siteContent.translations;
+  const isDarkTheme = siteContent.theme === 'dark';
   const [lang, setLang] = useState<Lang>('zh-TW');
   const t = translations[lang];
   const serviceCards = t.serviceCards.map(([title, desc, image]) => ({ title, desc, image }));
@@ -108,7 +109,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-stone-50 font-sans text-slate-900">
+    <main className={`${isDarkTheme ? 'site-dark' : ''} min-h-screen overflow-x-hidden bg-stone-50 font-sans text-slate-900`}>
       <nav className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-3 py-3 shadow-sm backdrop-blur sm:px-4">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
           <a href="#" className="flex min-w-0 items-center gap-2 sm:gap-3">
