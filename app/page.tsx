@@ -1,205 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-
-const brand = 'Aixelis';
-const phone = '626-252-4457';
-const phoneHref = 'tel:626-252-4457';
-
-const translations = {
-  'zh-TW': {
-    navCall: `電話 ${phone}`,
-    langBtn: 'English',
-    heroTitle: 'Aixelis 住宅與商家維修安裝服務',
-    heroSub: '家電/商用設備 • 網路佈線 • 監控安裝 • 智能家居 • 小型水電 • 綜合維修',
-    heroNote: '服務 Walnut 周邊、洛杉磯地區與 Orange County / Irvine，適合屋主、房東、店鋪、餐飲、倉庫與小型辦公室。',
-    bookBtn: '立即預約',
-    learnBtn: '查看服務',
-    aboutTitle: '把住宅和商家那些「一直想修」的問題一次處理好',
-    aboutDesc:
-      '我們提供靈活、透明、好溝通的 handyman 服務。從住宅門鎖、燈具、家電小故障，到商家 Wi-Fi、網路線、攝影機、智能門鈴、溫控器、出風口與日常維修，先了解問題，再給出清楚方案與報價。',
-    trustItems: ['透明報價', '快速回覆', '可做多項雜修', '中英文溝通'],
-    servicesTitle: '常見服務項目',
-    servicesDesc: '如果你的問題不在列表裡，也可以先提交描述，我們會判斷是否能處理。',
-    serviceCards: [
-      {
-        title: '家電與商用設備',
-        desc: '住宅家電、店鋪常用設備、洗衣機、烘乾機、洗碗機、冰箱、油煙機、垃圾處理器等檢查、拆裝與小型維修。',
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '網路與弱電',
-        desc: '住宅與商家 Wi-Fi 覆蓋、路由器設定、網路線佈線、牆面網口、機櫃整理與網路排查。',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '監控與智能設備',
-        desc: '住宅、店鋪與辦公室攝影機、NVR、智能門鈴、智能鎖、感應燈與基礎智能設備安裝設定。',
-        image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '溫控器與出風口維護',
-        desc: '空調濾網、智能溫控器、出風口、冷暖氣基礎檢查與簡單維護；複雜 HVAC 維修會先評估是否適合承接。',
-        image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '小型水電雜修',
-        desc: '燈具、開關、插座、水龍頭、馬桶配件、漏水初步排查、浴室廚房常見小維修。',
-        image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '門窗牆面與五金',
-        desc: '門鎖、鉸鏈、窗簾、置物架、電視掛架、牆面修補、家具組裝與各類五金安裝。',
-        image: 'https://images.unsplash.com/photo-1606676539940-12768ce0e762?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: '出租房與商家維護',
-        desc: '租客退房後維修、入住前檢查、店鋪維護清單、房東常見維護與緊急小處理。',
-        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=900',
-      },
-    ],
-    areaTitle: '服務區域',
-    areaDesc: '以 Walnut 周邊為核心，也承接洛杉磯地區與 Orange County / Irvine 的家庭維修需求。具體能否上門取決於距離、時間與工作內容。',
-    areas: ['Walnut 周邊', 'Diamond Bar', 'Rowland Heights', '洛杉磯地區', 'Orange County', 'Irvine 地區'],
-    seoTitle: '常見搜尋服務',
-    seoDesc: 'Aixelis 可協助住宅與商家處理 handyman、家電維修、商用設備安裝、網路佈線、Wi-Fi 設定、監控攝影機安裝、智能門鈴、智能鎖、溫控器、小型水電、門鎖五金、家具組裝、出租房維護與店鋪維修等需求。',
-    seoKeywords: ['handyman Walnut CA', 'Walnut 家庭維修', 'Los Angeles handyman', 'Orange County handyman', 'Irvine handyman', '家電維修', '商用設備安裝', '網路佈線', 'Wi-Fi 設定', '監控安裝', '智能門鈴安裝', '智能鎖安裝', '溫控器安裝', '家具組裝', '店鋪維修', '出租房維護'],
-    processTitle: '預約流程',
-    process: ['描述問題', '確認照片與地址', '估算方案與時間', '上門完成服務'],
-    loginTitle: `${brand} 會員登入`,
-    userLabel: '使用者名稱',
-    userPlaceholder: '請輸入使用者名稱',
-    passLabel: '密碼',
-    passPlaceholder: '請輸入密碼',
-    loginBtn: '登入',
-    registerBtn: '註冊',
-    regNavBtn: '會員',
-    forgotLink: '忘記密碼？',
-    forgotTitle: '找回密碼',
-    forgotBtn: '發送驗證碼',
-    resetTitle: '重置密碼',
-    resetBtn: '確認重置',
-    tokenLabel: '驗證碼',
-    tokenPlaceholder: '請輸入 6 位驗證碼',
-    emailLabel: '電子郵箱',
-    emailPlaceholder: '請輸入您的郵箱',
-    switchLogin: '已有帳號？立即登入',
-    switchRegister: '還沒有帳號？立即註冊',
-    loginSuccess: '登入成功',
-    loginFail: '登入失敗: ',
-    footer: `© 2026 ${brand}. All Rights Reserved.`,
-    modalTitle: '預約 Handyman 服務',
-    nameLabel: '您的姓名',
-    phoneLabel: '聯絡電話',
-    serviceLabel: '需要什麼服務？',
-    serviceOptions: ['家電 / 商用設備維修與安裝', '網路 / Wi-Fi / 佈線', '監控 / 門鈴 / 智能設備', '溫控器 / 出風口 / 濾網', '小型水電雜修', '門窗牆面與五金', '出租房 / 商家維護', '其他住宅或商家雜事'],
-    dateLabel: '期望日期',
-    descLabel: '問題描述',
-    descPlaceholder: '請描述住宅/商家類型、設備型號、故障情況、地址城市；如果方便，之後可補照片。',
-    cancelBtn: '取消',
-    submitBtn: '送出預約',
-    submittingBtn: '送出中...',
-    bookSuccess: '預約已送出，我們會盡快與您聯絡。',
-  },
-  en: {
-    navCall: `Call ${phone}`,
-    langBtn: '中文',
-    heroTitle: 'Aixelis Handyman Services for Homes & Businesses',
-    heroSub: 'Appliances & Business Equipment • Networking • Security Cameras • Smart Home • Small Electrical • Repairs',
-    heroNote: 'Serving Walnut, the greater Los Angeles area, and Orange County / Irvine for homeowners, landlords, shops, restaurants, warehouses, and small offices.',
-    bookBtn: 'Book Service',
-    learnBtn: 'View Services',
-    aboutTitle: 'Get home and business repairs off your list',
-    aboutDesc:
-      'We provide practical, transparent handyman help for jobs that are too small for a contractor but too important to ignore. From home repairs to shop Wi-Fi, cameras, smart devices, thermostats, vents, and everyday maintenance, tell us what is happening and we will help you decide the right next step.',
-    trustItems: ['Clear pricing', 'Fast response', 'Multi-task visits', 'English / Chinese'],
-    servicesTitle: 'Popular Services',
-    servicesDesc: 'If your issue is not listed, send a short description and we will let you know whether we can help.',
-    serviceCards: [
-      {
-        title: 'Appliances & Business Equipment',
-        desc: 'Home appliances, common shop equipment, washer, dryer, dishwasher, refrigerator, range hood, garbage disposal inspection, installation, and minor repair.',
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Networking & Low Voltage',
-        desc: 'Home and business Wi-Fi coverage, router setup, Ethernet cabling, wall jacks, network cleanup, and troubleshooting.',
-        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Cameras & Smart Devices',
-        desc: 'Security cameras, NVR, video doorbells, smart locks, motion lights, and smart device setup for homes, shops, and offices.',
-        image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Thermostat & Vent Help',
-        desc: 'Air filters, smart thermostats, vents, and basic heating or cooling checks. Larger HVAC repairs are reviewed before scheduling.',
-        image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Small Electrical & Plumbing',
-        desc: 'Lights, switches, outlets, faucets, toilet parts, basic leak checks, kitchen and bathroom small repairs.',
-        image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Doors, Walls & Hardware',
-        desc: 'Locks, hinges, curtain rods, shelves, TV mounts, drywall patching, furniture assembly, and hardware installs.',
-        image: 'https://images.unsplash.com/photo-1606676539940-12768ce0e762?auto=format&fit=crop&q=80&w=900',
-      },
-      {
-        title: 'Rental & Business Maintenance',
-        desc: 'Move-out punch lists, pre-move-in checks, shop maintenance lists, landlord maintenance, and bundled small repairs.',
-        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=900',
-      },
-    ],
-    areaTitle: 'Service Area',
-    areaDesc: 'Walnut and nearby cities are the core service area, with availability across greater Los Angeles and Orange County / Irvine depending on schedule, distance, and job scope.',
-    areas: ['Walnut Area', 'Diamond Bar', 'Rowland Heights', 'Greater Los Angeles', 'Orange County', 'Irvine Area'],
-    seoTitle: 'Common Searches We Serve',
-    seoDesc: 'Aixelis helps homes and businesses with handyman service, appliance repair, business equipment installation, Ethernet cabling, Wi-Fi setup, security camera installation, video doorbells, smart locks, thermostat installation, small electrical, plumbing, locks, hardware, furniture assembly, rental property maintenance, and shop repairs.',
-    seoKeywords: ['handyman Walnut CA', 'Walnut home repair', 'Los Angeles handyman', 'Orange County handyman', 'Irvine handyman', 'home repair near me', 'appliance repair', 'business equipment installation', 'Ethernet cabling', 'Wi-Fi setup', 'security camera installation', 'video doorbell installation', 'smart lock installation', 'thermostat installation', 'furniture assembly', 'shop repair', 'rental property maintenance'],
-    processTitle: 'How Booking Works',
-    process: ['Describe the issue', 'Confirm photos and address', 'Estimate plan and timing', 'Finish the job on site'],
-    loginTitle: `${brand} Member Login`,
-    userLabel: 'Username',
-    userPlaceholder: 'Enter username',
-    passLabel: 'Password',
-    passPlaceholder: 'Enter password',
-    loginBtn: 'Login',
-    registerBtn: 'Register',
-    regNavBtn: 'Member',
-    forgotLink: 'Forgot password?',
-    forgotTitle: 'Recover Password',
-    forgotBtn: 'Send Code',
-    resetTitle: 'Reset Password',
-    resetBtn: 'Confirm Reset',
-    tokenLabel: 'Verification Code',
-    tokenPlaceholder: 'Enter 6-digit code',
-    emailLabel: 'Email Address',
-    emailPlaceholder: 'Enter email',
-    switchLogin: 'Already have an account? Login',
-    switchRegister: 'No account? Register',
-    loginSuccess: 'Login successful',
-    loginFail: 'Login failed: ',
-    footer: `© 2026 ${brand}. All Rights Reserved.`,
-    modalTitle: 'Book Handyman Service',
-    nameLabel: 'Your Name',
-    phoneLabel: 'Phone Number',
-    serviceLabel: 'Service Needed',
-    serviceOptions: ['Appliance / Business Equipment Repair & Install', 'Network / Wi-Fi / Cabling', 'Cameras / Doorbell / Smart Devices', 'Thermostat / Vents / Filters', 'Small Electrical & Plumbing', 'Doors, Walls & Hardware', 'Rental / Business Maintenance', 'Other Home or Business Task'],
-    dateLabel: 'Preferred Date',
-    descLabel: 'Issue Description',
-    descPlaceholder: 'Describe whether this is for a home or business, the issue, model number, city, and any details. Photos can be shared later.',
-    cancelBtn: 'Cancel',
-    submitBtn: 'Submit Request',
-    submittingBtn: 'Submitting...',
-    bookSuccess: 'Request submitted. We will contact you soon.',
-  },
-};
+import { siteContent, type Lang } from '@/lib/site-content';
 
 export default function Home() {
-  const [lang, setLang] = useState<'zh-TW' | 'en'>('zh-TW');
+  const translations = siteContent.translations;
+  const [lang, setLang] = useState<Lang>('zh-TW');
   const t = translations[lang];
+  const serviceCards = t.serviceCards.map(([title, desc, image]) => ({ title, desc, image }));
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -213,7 +21,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [bookName, setBookName] = useState('');
   const [bookPhone, setBookPhone] = useState('');
-  const [bookService, setBookService] = useState(t.serviceOptions[0]);
+  const [bookService, setBookService] = useState<string>(t.serviceOptions[0]);
   const [bookDate, setBookDate] = useState('');
   const [bookDesc, setBookDesc] = useState('');
 
@@ -306,15 +114,15 @@ export default function Home() {
           <a href="#" className="flex min-w-0 items-center gap-2 sm:gap-3">
             <div className="rounded-lg bg-amber-500 px-2.5 py-2 text-lg font-black leading-none text-slate-950 sm:px-3 sm:text-xl">AX</div>
             <div>
-              <div className="text-lg font-black tracking-tight text-slate-900 sm:text-xl">{brand}</div>
-              <div className="hidden text-xs font-bold uppercase tracking-[0.2em] text-slate-500 sm:block">Home & Business Repair</div>
+              <div className="text-lg font-black tracking-tight text-slate-900 sm:text-xl">{siteContent.brand}</div>
+              <div className="hidden text-xs font-bold uppercase tracking-[0.2em] text-slate-500 sm:block">{siteContent.navTagline}</div>
             </div>
           </a>
           <div className="flex flex-1 items-center justify-end gap-1.5 sm:flex-none sm:gap-2">
             <button onClick={handleLangToggle} className="rounded-full border border-slate-300 px-2.5 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-100 sm:px-3 sm:text-sm">
               {t.langBtn}
             </button>
-            <a href={phoneHref} className="rounded-full bg-slate-900 px-3 py-2 text-xs font-bold text-white shadow-lg transition hover:bg-slate-700 sm:px-5 sm:text-sm">
+            <a href={siteContent.phoneHref} className="rounded-full bg-slate-900 px-3 py-2 text-xs font-bold text-white shadow-lg transition hover:bg-slate-700 sm:px-5 sm:text-sm">
               {t.navCall}
             </a>
             <button onClick={() => setAuthMode('register')} className="rounded-full border border-slate-300 px-2.5 py-2 text-xs font-bold text-slate-700 transition hover:bg-slate-100 sm:px-3 sm:text-sm">
@@ -326,10 +134,7 @@ export default function Home() {
 
       <section
         className="relative overflow-hidden bg-cover bg-center px-4 py-20 text-white sm:px-6 md:py-32"
-        style={{
-          backgroundImage: "url('/aixelis-smart-home-hero.jpg')",
-          backgroundPosition: 'center center',
-        }}
+        style={{ backgroundImage: `url('${siteContent.heroImage}')`, backgroundPosition: 'center center' }}
       >
         <div className="absolute inset-0 bg-slate-950/60" />
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -374,7 +179,7 @@ export default function Home() {
             <p className="text-base leading-7 text-slate-600 sm:text-lg">{t.servicesDesc}</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {t.serviceCards.map((service) => (
+            {serviceCards.map((service) => (
               <article key={service.title} className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                 <div className="h-40 bg-cover bg-center sm:h-44" style={{ backgroundImage: `url('${service.image}')` }} />
                 <div className="p-5 sm:p-6">
