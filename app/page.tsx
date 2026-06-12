@@ -198,7 +198,7 @@ const translations = {
 };
 
 export default function Home() {
-  const [lang, setLang] = useState<'zh-TW' | 'en'>('en');
+  const [lang, setLang] = useState<'zh-TW' | 'en'>('zh-TW');
   const t = translations[lang];
 
   const [username, setUsername] = useState('');
